@@ -17,10 +17,10 @@ class CreateSaleReturnsTable extends Migration {
 		{
 			$table->engine = 'InnoDB';
 			$table->integer('id', true);
-			$table->integer('user_id')->index('user_id_returns');
+			// $table->integer('user_id')->index('user_id_returns');
 			$table->date('date');
 			$table->string('Ref', 192);
-			// $table->integer('client_id')->index('client_id_returns');
+			$table->integer('client_id')->index('client_id_returns');
 			$table->integer('warehouse_id')->index('warehouse_id_sale_return_id');
 			$table->float('tax_rate', 10, 0)->nullable()->default(0);
 			$table->float('TaxNet', 10, 0)->nullable()->default(0);
