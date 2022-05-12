@@ -24,71 +24,71 @@ Route::get('password/find/{token}', 'PasswordResetController@find');
 
 //------------------------------------------------------------------\\
 
-// $installed = Storage::disk('public')->exists('installed');
+$installed = Storage::disk('public')->exists('installed');
 
-// if ($installed === false) {
-//     Route::get('/setup', [
-//         'uses' => 'SetupController@viewStep1',
-//     ])->name('setup');
+if ($installed === false) {
+    Route::get('/setup', [
+        'uses' => 'SetupController@viewStep1',
+    ])->name('setup');
 
-//     Route::post('/setup/step-2', [
-//         'as' => 'setupStep1', 'uses' => 'SetupController@setupStep1',
-//     ]);
+    Route::post('/setup/step-2', [
+        'as' => 'setupStep1', 'uses' => 'SetupController@setupStep1',
+    ]);
 
-//     Route::post('/setup/testDB', [
-//         'as' => 'testDB', 'uses' => 'TestDbController@testDB',
-//     ]);
+    Route::post('/setup/testDB', [
+        'as' => 'testDB', 'uses' => 'TestDbController@testDB',
+    ]);
 
-//     Route::get('/setup/step-2', [
-//         'uses' => 'SetupController@viewStep2',
-//     ]);
+    Route::get('/setup/step-2', [
+        'uses' => 'SetupController@viewStep2',
+    ]);
 
-//     Route::get('/setup/step-3', [
-//         'uses' => 'SetupController@viewStep3',
-//     ]);
+    Route::get('/setup/step-3', [
+        'uses' => 'SetupController@viewStep3',
+    ]);
 
-//     Route::get('/setup/finish', function () {
+    Route::get('/setup/finish', function () {
 
-//         return view('setup.finishedSetup');
-//     });
+        return view('setup.finishedSetup');
+    });
 
-//     Route::get('/setup/getNewAppKey', [
-//         'as' => 'getNewAppKey', 'uses' => 'SetupController@getNewAppKey',
-//     ]);
+    Route::get('/setup/getNewAppKey', [
+        'as' => 'getNewAppKey', 'uses' => 'SetupController@getNewAppKey',
+    ]);
 
-//     Route::get('/setup/getPassport', [
-//         'as' => 'getPassport', 'uses' => 'SetupController@getPassport',
-//     ]);
+    Route::get('/setup/getPassport', [
+        'as' => 'getPassport', 'uses' => 'SetupController@getPassport',
+    ]);
 
-//     Route::get('/setup/getMegrate', [
-//         'as' => 'getMegrate', 'uses' => 'SetupController@getMegrate',
-//     ]);
+    Route::get('/setup/getMegrate', [
+        'as' => 'getMegrate', 'uses' => 'SetupController@getMegrate',
+    ]);
 
-//     Route::post('/setup/step-3', [
-//         'as' => 'setupStep2', 'uses' => 'SetupController@setupStep2',
-//     ]);
+    Route::post('/setup/step-3', [
+        'as' => 'setupStep2', 'uses' => 'SetupController@setupStep2',
+    ]);
 
-//     Route::post('/setup/step-4', [
-//         'as' => 'setupStep3', 'uses' => 'SetupController@setupStep3',
-//     ]);
+    Route::post('/setup/step-4', [
+        'as' => 'setupStep3', 'uses' => 'SetupController@setupStep3',
+    ]);
 
-//     Route::post('/setup/step-5', [
-//         'as' => 'setupStep4', 'uses' => 'SetupController@setupStep4',
-//     ]);
+    Route::post('/setup/step-5', [
+        'as' => 'setupStep4', 'uses' => 'SetupController@setupStep4',
+    ]);
 
-//     Route::post('/setup/lastStep', [
-//         'as' => 'lastStep', 'uses' => 'SetupController@lastStep',
-//     ]);
+    Route::post('/setup/lastStep', [
+        'as' => 'lastStep', 'uses' => 'SetupController@lastStep',
+    ]);
 
-//     Route::get('setup/lastStep', function () {
-//         return redirect('/setup', 301);
-//     });
+    Route::get('setup/lastStep', function () {
+        return redirect('/setup', 301);
+    });
 
-// } else {
-//     Route::any('/setup/{vue}', function () {
-//         abort(403);
-//     });
-// }
+} else {
+    Route::any('/setup/{vue}', function () {
+        abort(403);
+    });
+}
 
 //------------------------------------------------------------------\\
 
