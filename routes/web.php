@@ -97,7 +97,7 @@ Route::group(['middleware' => ['auth', 'Is_Active']], function () {
     Route::get('/login', function () {
         $installed = Storage::disk('public')->exists('installed');
         if ($installed === false) {
-            return redirect('/login');
+            return redirect('/setup');
         } else {
             return redirect('/login');
         }
@@ -108,7 +108,7 @@ Route::group(['middleware' => ['auth', 'Is_Active']], function () {
         function () {
             $installed = Storage::disk('public')->exists('installed');
             if ($installed === false) {
-                return redirect('/login');
+                return redirect('/setup');
             } else {
                 return view('layouts.master');
             }
